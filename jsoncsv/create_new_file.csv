@@ -1,0 +1,3 @@
+header1,header2
+"[{'address_string': '231 West St, Gettysburg, PA 17325', 'city': 'Gettysburg', 'languages': [], 'office_name': None, 'phones': [{'type': 'phone', 'value': '7173346447'}], 'state': 'PA', 'street_line_1': '231 West St', 'street_line_2': None, 'zip': '17325'}]",[{'name': 'Rite Aid Pharmacy 00927'}]
+"[{'address_string': '6 Springs Ave, Gettysburg, PA 17325', 'city': 'Gettysburg', 'languages': [], 'office_name': None, 'phones': [{'type': 'phone', 'value': '7173370881'}], 'state': 'PA', 'street_line_1': '6 Springs Ave', 'street_line_2': None, 'zip': '17325'}]",[{'name': 'Laslows Pharmacy'}]

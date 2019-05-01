@@ -1,0 +1,96 @@
+-- select data->'provider'->>'unparsed_name' from ih limit 10;
+-- select data->'addresses' as address, data->'networks' as network from json where data->'provider'->>'site_uid' = '40402';
+-- drop table vivahealth;
+--  
+-- select data from scott where data->'provider'->>'npi'='1528002797'
+
+-- select data->'provider'->>'site_uid' as site_uid,data->'provider'->>'unparsed_name' as 
+-- unparsedname, jsonb_array_elements_text(data->'addresses') as address, (data->'networks') as network, 
+-- data->'group_affiliations' as groupaff, data->'hospital_affiliations' as hospital,data->'provider'->>'pcp_id' as pcpid,
+-- data->'provider'->>'npi' as npi,data->'provider'->>'license_number' as license_number,data->'provider'->>'pcp' as pcp,
+-- (data->'specialties') as speciality,data->'provider'->>'gender' as gender, data->'provider'->>'accepting_new_patients' as acceptingnewpatient, data->'provider'->>'provider_type' as providertype, 
+-- data->'provider'->>'first_name' as firstname, data->'provider'->>'last_name' as lastname
+-- from humanadental where (data->'provider'->>'npi') ='1205287455' order by 1;
+
+
+-- select distinct(jsonb_array_elements_text(data->'specialties')) as speciality from qualchoicenew order by 1;
+
+select (data->'addresses') as address, (data->'networks') as network, 
+data->'group_affiliations' as group, data->'hospital_affiliations' as hospital, data->'provider'->>'unparsed_name' as 
+unparsedname,data->'provider'->>'npi' as npi,data->'provider'->>'pcp_id' as pcp_id,(data->'specialties') as speciality,data->'provider'->>'facility_type' as providertype,
+data->'provider'->>'pcp' as pcp,data->'provider'->>'accepting_new_patients' as acceptingnewpatient,
+data->'provider'->>'provider_type' as providertype, data->'provider'->>'gender' as gender,data->'provider'->>'site_uid' as site_uid,
+data->'provider'->>'first_name' as fname, data->'provider'->>'last_name' as lname from qualchoicenew
+where lower(data->'provider'->>'unparsed_name') like lower('%Bettasso%') order by fname;
+
+
+-- select jsonb_array_elements_text(data->'addresses') as address, (data->'networks') as network, 
+-- data->'group_affiliations' as group, data->'hospital_affiliations' as hospital, data->'provider'->>'unparsed_name' as 
+-- unparsedname,data->'provider'->>'npi' as npi,data->'provider'->>'pcp_id' as pcp_id,(data->'specialties') as speciality,
+-- data->'provider'->>'pcp' as pcp,data->'provider'->>'accepting_new_patients' as acceptingnewpatient,
+-- data->'provider'->>'provider_type' as providertype, data->'provider'->>'gender' as gender,data->'provider'->>'site_uid' as site_uid from scanhealth
+-- where data->'provider'->>'site_uid' = '17786' order by 1;
+
+-- select (data->'addresses') as address,data->'provider'->>'unparsed_name' as unparsedname,(data->'networks') as networks,
+-- data->'specialties' as specialities, data->'provider'->>'provider_type' as providertype,data->'provider'->>'first_name' as firstname,
+-- data->'provider'->>'last_name' as lastname,
+-- data->'provider'->>'site_uid' as siteuid from hsahealthnew
+-- where data->'provider'->>'provider_type' like '%fac%' order by 1;
+
+-- select (data->'provider'->'unparsed_name') as Unparsed_name, data->'provider'->>'provider_type' as provider_type, data->'addresses' as address
+-- from utselectionindi where data->'provider'->>'provider_type' like '%indi%' order by 1;
+
+-- select distinct(data->'addresses') from cdphp where (data->'provider'->>'npi') ='1912164450';
+
+-- select data->'addresses', data->'provider'->>'unparsed_name' from empireinland order by 1;
+
+-- select distinct(data->'networks') from bcbsne;
+
+-- select data-'hospital_affiliations' as hos, data->'networks' as net, data->'group_affiliations' as grp, data->'provider'->>'npi' as npi from aetnanew limit 5000;
+
+-- select count(data->'site') from bcbs where data->'addresses' is null;
+
+-- SELECT (data->'addresses') as address, (data->'networks') as network, 
+-- data->'group_affiliations' as group, data->'hospital_affiliations' as hospital, data->'provider'->>'unparsed_name' as 
+-- unparsedname,data->'provider'->>'npi' as npi,data->'provider'->>'pcp_id' as pcp_id,(data->'specialties') as speciality,
+-- data->'provider'->>'pcp' as pcp,data->'provider'->>'accepting_new_patients' as acceptingnewpatient,
+-- data->'provider'->>'provider_type' as providertype, data->'provider'->>'gender' as gender,data->'provider'->>'site_uid' as site_uid
+-- FROM humanadental
+-- WHERE data IN (SELECT data
+--               FROM humanadental 
+--               GROUP BY data HAVING COUNT(*)>1) order by 1;
+
+-- select (data) from southcountrynew where data->'provider'->>'provider_type' like '%facil%';
+
+-- -- select data->'addresses' from ih order by 1 limit 500;
+-- select data->'addresses',data->'provider'->>'provider_type', data->'provider'->>'unparsed_name',
+-- data->'provider'->>'site_uid',data->'group_affiliations' as group, data->'hospital_affiliations' from ilcountynew where data->'provider'->>'provider_type' like '%facili%';
+-- and data->'provider'->>'facility_name' like '%,%';
+
+-- select (data->'provider'->'provider_type'),data->'addresses',  data->'provider'->>'facility_name' from healthpartneria where data->'provider'->>'provider_type' like '%facility%';
+-- select data->'provider'->>'facility_name' from healthpartneria where data->'provider'->>'facility_name' is not null order by 1;
+
+-- select count(data->'provider'->'provider_type') from southcountry where data->'provider'->>'provider_type' like '%facili%';
+-- select count(data->'networks') as net from avmedn where data->'networks'->>'name' like '%Empower Individual and Family%' 
+-- and data->'provider'->>'provider_type' like '%facili%';
+
+-- select distinct(jsonb_array_elements_text(data->'networks')) from wicarefinal;
+
+-- select (count(data)) from goldco where data->'provider'->>'pcp' is null;
+-- select count(distinct(data)) from utselectionindi;
+
+-- select jsonb_array_elements_text(data->'networks')
+-- 								 from scott group by data->'networks';
+
+-- select data->'addresses',data->'provider'->'unparsed_name',data->'group_affiliations' as grp, data->'hospital_affiliations' from atenae order by 1 limit 5000;
+-- select data from avmednew where data->'provider'->>'pcp_id'='319277';
+
+-- select advacnehealthnew.data->'provider'->'site_uid' as npi, advacnehealthnew.data->'addresses' as addressnew,
+-- advancehealth.data->'addresses' as addressold, advacnehealthnew.data->'networks' as networksnew,  advancehealth.data->'networks' as networksold
+-- from advacnehealthnew inner join advancehealth on advacnehealthnew.data->'provider'->'site_uid'=advancehealth.data->'provider'->'site_uid';
+
+
+-- select count((healthpwi.data->'addresses'))
+-- from healthpwi inner join healthpartner on healthpwi.data->'provider'->'site_uid'=healthpartner.data->'provider'->'site_uid';
+
+-- select data->'addresses', data->'networks',data->'provider'->>'site_uid',data->'provider'->>'unparsed_name' from healthpartner order by 1;
