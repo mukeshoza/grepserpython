@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vericred Summary Report</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src = "https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 75%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-left: 11%;
+  text-align: center
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+  margin-left: 11%
+
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  width: 75%;
+  margin-left: 11%;
+  text-align: center
+}
+
+</style>
+</head>
+<body>
+<center>
+
+<br><hr><h2>Vericred Project Summary Report - testjson1</h2><hr></center><b style="margin-left:6%;"><font color="purple">Total Provider: 100,313</font><div><div style= "float: left; width:40%; margin-top: -2%; margin-left: 5%;">
+<canvas id="myChart2" width="208" height="110"></canvas>
+<script>
+var ctx = document.getElementById('myChart2').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Open Access', '2019 Distinctions III', '2018 Distinctions III', '2019 Distinctions II', 'CentraChoice', '2018 Distinctions II', 'Perform', 'Perform SE', 'CentraChoice SE', 'HealthPartners Primary Clinic', 'Others'],datasets: [{
+label: ['available count'],
+data: [8258, 8175, 8173, 8170, 8167, 8163, 8117, 8112, 7237, 7110, 20626],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)',
+                'rgba(153, 102, 255, 0.8)',
+                'rgba(28, 130, 114, 0.8)',
+                'rgba(285, 108, 24, 0.8)',
+                'rgba(225, 180, 81, 0.8)',
+                'rgba(0, 34, 56, 0.8)',
+                'rgba(126, 245, 0, 0.8)',
+                'rgba(0, 245, 216, 0.8)',
+                'rgba(259, 99, 132, 0.8)'
+                
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)',
+                'rgba(153, 102, 255, 0.8)',
+                'rgba(28, 130, 114, 0.8)',
+                'rgba(285, 108, 24, 0.8)',
+                'rgba(225, 180, 81, 0.8)',
+                'rgba(0, 34, 56, 0.8)',
+                'rgba(126, 245, 0, 0.8)',
+                'rgba(0, 245, 216, 0.8)',
+                'rgba(259, 99, 132, 0.8)'
+                
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            fontsize: 14,
+            text: 'Network Count'
+        },
+        legend: {
+            display: true,
+            position: 'right',
+            labels: {
+                generateLabels: function(chart) {
+                    var data = chart.data;
+                    if (data.labels.length && data.datasets.length) {
+                        return data.labels.map(function(label, i) {
+                            var meta = chart.getDatasetMeta(0);
+                            var ds = data.datasets[0];
+                            var arc = meta.data[i];
+                            var custom = arc && arc.custom || {};
+                            var getValueAtIndexOrDefault = Chart.helpers.getValueAtIndexOrDefault;
+                            var arcOpts = chart.options.elements.arc;
+                            var fill = custom.backgroundColor ? custom.backgroundColor : getValueAtIndexOrDefault(ds.backgroundColor, i, arcOpts.backgroundColor);
+                            var stroke = custom.borderColor ? custom.borderColor : getValueAtIndexOrDefault(ds.borderColor, i, arcOpts.borderColor);
+                            var bw = custom.borderWidth ? custom.borderWidth : getValueAtIndexOrDefault(ds.borderWidth, i, arcOpts.borderWidth);
+
+							// We get the value of the current label
+							var value = chart.config.data.datasets[arc._datasetIndex].data[arc._index];
+
+                            return {
+                                // Instead of `text: label,`
+                                // We add the value to the string
+                                text: label + " : " + value,
+                                fillStyle: fill,
+                                strokeStyle: stroke,
+                                lineWidth: bw,
+                                hidden: isNaN(ds.data[i]) || meta.data[i].hidden,
+                                index: i
+                            };
+                        });
+                    } else {
+                        return [];
+                    }
+                }
+            }
+        }
+    }
+    
+});
+
+</script></div></div><br/><div style="float:right; width:45%; margin-top:-3%; margin-right:5%;">
+<canvas id="myChart1" width="235" height="110"></canvas>
+<script>
+var ctx = document.getElementById('myChart1').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['ND', 'MN', 'MT', 'SD', 'WI', '', 'NY', 'PA', 'IA', 'NJ', 'Others'],datasets: [{
+label: ['available count'],
+data: [75708, 16779, 3322, 1255, 553, 420, 396, 374, 223, 165, 1118],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)',
+                'rgba(153, 102, 255, 0.8)',
+                'rgba(28, 130, 114, 0.8)',
+                'rgba(285, 108, 24, 0.8)',
+                'rgba(225, 180, 81, 0.8)',
+                'rgba(0, 34, 56, 0.8)',
+                'rgba(126, 245, 0, 0.8)',
+                'rgba(0, 245, 216, 0.8)',
+                'rgba(259, 99, 132, 0.8)'
+               
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)',
+                'rgba(153, 102, 255, 0.8)',
+                'rgba(28, 130, 114, 0.8)',
+                'rgba(285, 108, 24, 0.8)',
+                'rgba(225, 180, 81, 0.8)',
+                'rgba(0, 34, 56, 0.8)',
+                'rgba(126, 245, 0, 0.8)',
+                'rgba(0, 245, 216, 0.8)',
+                'rgba(259, 99, 132, 0.8)'
+                
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            fontsize: 14,
+            text: 'State Count'
+        },
+        legend: {
+            display: true,
+            position: 'right',
+            labels: {
+                generateLabels: function(chart) {
+                    var data = chart.data;
+                    if (data.labels.length && data.datasets.length) {
+                        return data.labels.map(function(label, i) {
+                            var meta = chart.getDatasetMeta(0);
+                            var ds = data.datasets[0];
+                            var arc = meta.data[i];
+                            var custom = arc && arc.custom || {};
+                            var getValueAtIndexOrDefault = Chart.helpers.getValueAtIndexOrDefault;
+                            var arcOpts = chart.options.elements.arc;
+                            var fill = custom.backgroundColor ? custom.backgroundColor : getValueAtIndexOrDefault(ds.backgroundColor, i, arcOpts.backgroundColor);
+                            var stroke = custom.borderColor ? custom.borderColor : getValueAtIndexOrDefault(ds.borderColor, i, arcOpts.borderColor);
+                            var bw = custom.borderWidth ? custom.borderWidth : getValueAtIndexOrDefault(ds.borderWidth, i, arcOpts.borderWidth);
+
+							// We get the value of the current label
+							var value = chart.config.data.datasets[arc._datasetIndex].data[arc._index];
+
+                            return {
+                                // Instead of `text: label,`
+                                // We add the value to the string
+                                text: label + " : " + value,
+                                fillStyle: fill,
+                                strokeStyle: stroke,
+                                lineWidth: bw,
+                                hidden: isNaN(ds.data[i]) || meta.data[i].hidden,
+                                index: i
+                            };
+                        });
+                    } else {
+                        return [];
+                    }
+                }
+            }
+        }
+    }    
+  
+
+});
+
+</script></div></div></div><br/></div><a style = "margin-left:6%;" class="btn btn-dark" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">All Networks</a>
+  <button  style = "margin-right:-30%; float:right;" class="btn btn-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">All States</button>
+  
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <table class="table table-hover">
+  <table class="table table-hover" style="width:40%; margin-left: 6%;">
+  <thead>
+    <tr><th scope="col" style="width:40%";>Networks</th><th scope="col" style="width:40%";>Count</th></tr></thead><tbody><tr><td scope="row">Open Access</td> <td>8258</td></tr> <tr><td scope="row">2019 Distinctions III</td> <td>8175</td></tr> <tr><td scope="row">2018 Distinctions III</td> <td>8173</td></tr> <tr><td scope="row">2019 Distinctions II</td> <td>8170</td></tr> <tr><td scope="row">CentraChoice</td> <td>8167</td></tr> <tr><td scope="row">2018 Distinctions II</td> <td>8163</td></tr> <tr><td scope="row">Perform</td> <td>8117</td></tr> <tr><td scope="row">Perform SE</td> <td>8112</td></tr> <tr><td scope="row">CentraChoice SE</td> <td>7237</td></tr> <tr><td scope="row">HealthPartners Primary Clinic</td> <td>7110</td></tr> <tr><td scope="row">AchieveSM</td> <td>4798</td></tr> <tr><td scope="row">AchieveSM SE</td> <td>4582</td></tr> <tr><td scope="row">HealthPartners Select Choice</td> <td>2813</td></tr> <tr><td scope="row">Peak</td> <td>1819</td></tr> <tr><td scope="row">HealthPartners Classic</td> <td>1817</td></tr> <tr><td scope="row">Atlas</td> <td>1814</td></tr> <tr><td scope="row">Freedom (Cost)</td> <td>695</td></tr> <tr><td scope="row">Sanford (Cost)</td> <td>692</td></tr> <tr><td scope="row">MSHO</td> <td>377</td></tr> <tr><td scope="row">Journey (PPO)</td> <td>207</td></tr> <tr><td scope="row">HealthPartners DistinctionsSM Dental</td> <td>139</td></tr> <tr><td scope="row">Individual dental open access</td> <td>139</td></tr> <tr><td scope="row">HealthPartners Regional Open Access Dental</td> <td>139</td></tr> <tr><td scope="row">HealthPartners Distinctions III Dental</td> <td>139</td></tr> <tr><td scope="row">HealthPartners Dental Open Access</td> <td>139</td></tr> <tr><td scope="row">Robin (PPO)</td> <td>137</td></tr> <tr><td scope="row">Individual HealthPartners dental group</td> <td>76</td></tr> <tr><td scope="row">HealthPartners Dental Select</td> <td>76</td></tr> <tr><td scope="row">UnityPoint Health</td> <td>28</td></tr>
+  </tbody>
+</table></div></div></div><div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <table class="table table-hover">
+    
+    <table class="table table-hover" style="width:25%; margin-left: 75%;">
+  <thead>
+  	
+    <tr><th scope="col" style="width:40%";>States</th><th scope="col" style="width:40%";>Count</th></tr></thead><tbody><tr><td scope="row">ND</td> <td>75708</td></tr> <tr><td scope="row">MN</td> <td>16779</td></tr> <tr><td scope="row">MT</td> <td>3322</td></tr> <tr><td scope="row">SD</td> <td>1255</td></tr> <tr><td scope="row">WI</td> <td>553</td></tr> <tr><td scope="row"></td> <td>420</td></tr> <tr><td scope="row">NY</td> <td>396</td></tr> <tr><td scope="row">PA</td> <td>374</td></tr> <tr><td scope="row">IA</td> <td>223</td></tr> <tr><td scope="row">NJ</td> <td>165</td></tr> <tr><td scope="row">ID</td> <td>154</td></tr> <tr><td scope="row">WA</td> <td>132</td></tr> <tr><td scope="row">MO</td> <td>99</td></tr> <tr><td scope="row">NE</td> <td>93</td></tr> <tr><td scope="row">OK</td> <td>77</td></tr> <tr><td scope="row">MA</td> <td>66</td></tr> <tr><td scope="row">LA</td> <td>66</td></tr> <tr><td scope="row">TX</td> <td>66</td></tr> <tr><td scope="row">IL</td> <td>57</td></tr> <tr><td scope="row">GA</td> <td>33</td></tr> <tr><td scope="row">CA</td> <td>33</td></tr> <tr><td scope="row">VA</td> <td>22</td></tr> <tr><td scope="row">WV</td> <td>22</td></tr> <tr><td scope="row">SC</td> <td>22</td></tr> <tr><td scope="row">NH</td> <td>22</td></tr> <tr><td scope="row">MS</td> <td>22</td></tr> <tr><td scope="row">KY</td> <td>22</td></tr> <tr><td scope="row">CO</td> <td>22</td></tr> <tr><td scope="row">WY</td> <td>22</td></tr> <tr><td scope="row">OR</td> <td>11</td></tr> <tr><td scope="row">OH</td> <td>11</td></tr> <tr><td scope="row">NV</td> <td>11</td></tr> <tr><td scope="row">TN</td> <td>11</td></tr> <tr><td scope="row">NM</td> <td>11</td></tr> <tr><td scope="row">AZ</td> <td>11</td></tr>
+  </tbody>
+</table></div></div></div></p></b><div style = "margin-left:6%; margin-right:6%;"><table class="table table-hover">
+  <thead>
+    <tr><th scope="col">Fields</th><th scope="col">Available Provider</th><th scope="col">Missing Provider</th><th scope="col">Bar Distribution</th><th scope="col">Remarks</th></tr>
+  </thead>
+  <tbody>
+    <tr></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">address_string</th><td>99,893</td><td>420</td><td><div class="container">
+  <div class="progress">
+<div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "99.58" style="width:99.58%">99.58% Total Address_String
+
+</div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.41868950185918075" style="width:0.42%">0.42% Missing Address_String
+
+    </div>
+  </div>
+</div></td><td><b><font color = "green">address_string</b></font></td></tr>
+<tr><th scope="row">city</th><td>99,893</td><td>420</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "99.58" style="width:99.58%">99.58% Total City
+
+    </div>
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.41868950185918075" style="width:0.42%">0.42% Missing City
+
+    </div>
+  </div>
+</div></td><td><b><font color = "green">city</b></font></td></tr>
+<tr><th scope="row">Language</th><td>10,823</td><td>89,490</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "10.79" style="width:10.79%">10.79% Total Language
+
+    </div>
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "89.21077028899545" style="width:89.21%">89.21% Missing Language
+
+    </div>
+  </div>
+</div></td><td><b><font color = "red">language</b></font></td></tr>
+<tr><th scope="row">Office</th><td>100,313</td><td>0</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total Office
+
+    </div>
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing Office
+
+    </div>
+  </div>
+</div></td><td><b><font color = "green">office_name</b></font></td></tr>
+<tr><th scope="row">Phone</th><td>100,279</td><td>34</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "99.97" style="width:99.97%">99.97% Total Phone
+
+    </div>
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.03389391205526701" style="width:0.03%">0.03% Missing Phone
+
+    </div>
+  </div>
+</div></td><td><b><font color = "green">phone</b></font></td></tr>
+<tr><th scope="row">State</th><td>99,893</td><td>420</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "99.58" style="width:99.58%">99.58% Total State
+
+    </div>
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.41868950185918075" style="width:0.42%">0.42% Missing State
+
+    </div>
+  </div>
+</div></td><td><b><font color = "green">state</b></font></td></tr>
+<tr><th scope="row">Zip</th><td>99,893</td><td>420</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "99.58" style="width:99.58%">99.58% Total Zip
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.41868950185918075" style="width:0.42%">0.42% Missing Zip
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">zip</b></font></td></tr>
+<tr><th scope="row">accepting_new_patient</th><td>97,335</td><td>2,978</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "97.03" style="width:97.03%">97.03% Total Accepting New Patient
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "2.97" style="width:2.97%">2.97% Missing Accepting New Patient
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">accepting_new_patient</b></font></td></tr>
+<tr><th scope="row">NPI</th><td>0</td><td>100,313</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Total NPI
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Missing NPI
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "red">npi</b></font></td></tr>
+<tr><th scope="row">PCP</th><td>0</td><td>100,313</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Total PCP
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Missing PCP
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "red">pcp</b></font></td></tr>
+<tr><th scope="row">site_uid</th><td>100,313</td><td>0</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total site_uid
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing suite_uid
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">site_uid</b></font></td></tr>
+<tr><th scope="row">unparsed_name</th><td>100,313</td><td>0</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total unparsed_name
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing unparsed_name
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">Unparsed Name</b></font></td></tr>
+<tr><th scope="row" bgcolor="#DCF4FF">provider_type count</th><td bgcolor="#DCF4FF"><b><font color="purple">Total Individual: 85,385</td></b></font><td bgcolor="#DCF4FF"><b><font color="purple">Total Facility: 14,928</td></b></font><td><b><font color="purple"><div class="container">
+  <div class="progress">
+   <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "85.12" style="width:85.12%">85.12% Total Individual
+
+    </div>
+<div class="progress-bar progress-bar-striped bg-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "14.88" style="width:14.88%">14.88% Total Facility
+
+    </div>
+  </div></b>
+</div></td></b></font><tr><th scope="row">facility_name</th><td>14,928</td><td>0</td><td><div class="container">
+      <div class="progress">
+       <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total Facility Name
+    
+        </div>
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing Facility Name
+    
+        </div>
+      </div></b>
+    </div></td><td><b><font color = "green">Facility Name</b></font></td></tr>
+<tr><th scope="row">facility_type</th><td>0</td><td>14,928</td><td><div class="container">
+      <div class="progress">
+       <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Total Facility Type
+    
+        </div>
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Missing Facility Type
+    
+        </div>
+      </div></b>
+    </div></td><td><b><font color = "red">Facility Type</b></font></td></tr>
+<tr><th scope="row">first_name</th><td>85,385</td><td>0</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total First Name
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing Facility Name
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">First Name</b></font></td></tr>
+<tr><th scope="row">last_name</th><td>85,385</td><td>0</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total Last Name
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing Last Name
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">Last Name</b></font></td></tr>
+<tr><th scope="row">middle_name</th><td>75,068</td><td>10,317</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "87.92" style="width:87.92%">87.92% Total Middle Name
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "12.08" style="width:12.08%">12.08% Missing Middle Name
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "red">Middle Name</b></font></td></tr>
+<tr><th scope="row">gender</th><td>85,385</td><td>0</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total Gender
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing Gender
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">Gender</b></font></td></tr>
+<tr><th scope="row">network</th><td>100,308</td><td>5</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Total Network
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Missing Network
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">Network</b></font></td></tr>
+<tr><th scope="row">tier</th><td>5</td><td>100,308</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "0.0" style="width:0.0%">0.0% Total Tier
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "100.0" style="width:100.0%">100.0% Missing Tier
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "red">Network Tier</b></font></td></tr>
+<tr><th scope="row">group_affiliation</th><td>64,240</td><td>36,073</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "64.04" style="width:64.04%">64.04% Total Group Aff
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "35.96" style="width:35.96%">35.96% Missing Group Aff
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "red">Group Affiliations</b></font></td></tr>
+<tr><th scope="row">hospital_affiliation</th><td>35,464</td><td>64,849</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "35.35" style="width:35.35%">35.35% Total Hospital Aff
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "64.65" style="width:64.65%">64.65% Missing Hospital Aff
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "red">Hospital Affiliations</b></font></td></tr>
+<tr><th scope="row">Specialties</th><td>94,367</td><td>5,946</td><td><div class="container">
+  <div class="progress">
+   <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "94.07" style="width:94.07%">94.07% Total Specialties
+
+    </div>
+<div class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow= "5.93" style="width:5.93%">5.93% Missing Specialties
+
+    </div>
+  </div></b>
+</div></td><td><b><font color = "green">Specialties</b></font></td></tr>
+
+  </tbody>
+</table><hr>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
